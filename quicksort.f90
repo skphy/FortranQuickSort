@@ -1,20 +1,29 @@
 program quicksort
     implicit none
+    
     interface
         recursive subroutine sort(i, j, n, a)
             integer, intent(in) :: i, j, n
             integer, dimension(n), intent(inout) :: a
         end subroutine sort
     end interface
+    
     integer, parameter :: n = 7
     integer, dimension(n) :: a
-    a = (/8, 2, 6, 3, 7, 1, 5/)
+    !a = (/8, 2, 6, 3, 7, 1, 5/)
+    a = [8, 2, 6, 3, 7, 1, 5]
+    
     write(*,*) a
     call sort(1, n, n, a)
     write(*,*) a
 end program quicksort
 
 recursive subroutine sort(i, j, n, a)
+!
+!
+! sort array elements of array a of size n
+!
+!
     integer, intent(in) :: i, j, n
     integer, dimension(n), intent(inout) :: a
     integer :: t, p
@@ -27,6 +36,9 @@ recursive subroutine sort(i, j, n, a)
 end subroutine
 
 function partition(l, h, n, a)
+!
+! do partition of array a
+!
     integer partition
     integer :: l, h, n, pivot, i, j
     integer, dimension(n) :: a
@@ -43,6 +55,10 @@ function partition(l, h, n, a)
 end function partition
 
 subroutine swap(i, j, n, a)
+!!
+!! swap array i and j array elements 
+!! in array a of size n
+!!
     integer :: i, j, n, t
     integer, dimension(n) :: a
     t = a(i)
