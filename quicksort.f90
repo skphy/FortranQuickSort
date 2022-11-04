@@ -55,10 +55,9 @@ function partition(l, h, n, a)
 end function partition
 
 subroutine swap(i, j, n, a)
-!!
-!! swap array i and j array elements 
-!! in array a of size n
-!!
+!
+! swap array elements i and j in array a of size n
+!
     integer :: i, j, n, t
     integer, dimension(n) :: a
     t = a(i)
